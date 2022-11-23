@@ -1,17 +1,16 @@
-//
-//  Swift_PlaygroundApp.swift
-//  Swift Playground
-//
-//  Created by Christoffer Öhman on 2022-11-20.
-//
-
 import SwiftUI
 
 @main
 struct Swift_PlaygroundApp: App {
+    let store = Store(
+        initial: State(),
+        reducer: State.reducer
+    )
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            BudgetsView()
+                .environmentObject(store)
         }
     }
 }
